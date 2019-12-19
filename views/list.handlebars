@@ -1,0 +1,40 @@
+<h1>To-do's</h1>
+<hr>
+<a href="/todo" class="btn btn-primary">Adicionar TODO</a>
+
+<div class="todos-container">
+
+
+  {{#if todos}}
+    <ul class="list-group col-6 mt-4">
+      {{#each todos}}
+        <li class="list-group-item d-flex justify-content-between align-items-center faster">
+          {{this}}
+          <button class="btn btn-outline-danger" data-todo="{{this}}" onclick="remove(this)">Remover</button>
+        </li>
+      {{/each}}
+    </ul>
+
+  {{else}}
+
+    <div class="mt-4">
+      Sem to-dos adicionados.
+    </div>
+    
+
+  {{/if}}
+
+
+  {{#if repeated}}
+
+    <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+      <strong>Item repetido!</strong> O item {{repeated}} já está na lista.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+  {{/if}}
+
+</div>
